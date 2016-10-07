@@ -5,6 +5,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     logout() {
       this.get('session').invalidate();
+      this.get('flashMessages').success('Logged out');
     }
   }
 });
