@@ -7,9 +7,7 @@ export default Ember.Route.extend({
   flashMessages: inject.service(),
 
   actions: {
-    /* Create a new room */
     createRoom() {
-      // Get the "new room" model
       let data = this.get('currentModel.newRoom');
       // Create an ember-data record
       let room = this.store.createRecord('room', {name: data.name});

@@ -31,9 +31,7 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    // Very shortly after a message is created, add the "active"
-    // class to it, so that we can use CSS animations for
-    // the entry transition
+
     this._applyActiveClass = next(() => {
       this.set('active', true);
     });
@@ -41,10 +39,8 @@ export default Component.extend({
 
   willDestroyElement() {
     this._super();
-    // Prevent leaking
     this._destroyFlashMessage();
-    // To be thorough, we will cancel any queued
-    // task to add the "active" class (see: didInsertElement)
+
     if (this._applyActiveClass) {
       cancel(this._applyActiveClass);
     }
